@@ -1,0 +1,80 @@
+body {
+    
+  }
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+h3 {
+	text-align: center;
+}
+
+/* Tamanho da imagem ideal até 470 x 200 px */
+
+.logo{ 
+	height: 200px;
+	margin:  auto;
+	width: 50%;
+ }
+
+.imglogo{
+	max-height: 200px;
+}
+
+.identificacao{
+       margin-top: 30px;
+}
+
+.tecnica {
+
+}
+
+.antropometrico{
+margin-top: 10px;
+}
+
+.osseo{
+
+}
+
+.magro{
+
+}
+
+.gordura{
+
+}
+
+.conclusao{
+	margin-top: 50px;
+}
+
+.assinatura{ 
+	height: 60px;
+	
+}
+
+.linhaassin{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.medico{
+	    text-align: center;
+    	float: right;
+   		margin-right: 100px;
+    	margin-top: 30px;
+
+}
+
+.rodape{
+	clear: both;
+	position: relative;
+	text-align: center;
+	padding-top: 15px;
+	}

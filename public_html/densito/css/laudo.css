@@ -1,0 +1,72 @@
+body {
+    
+  }
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+h3 {
+	text-align: center;
+}
+
+/* Tamanho da imagem ideal até 470 x 200 px */
+
+.logo{ 
+	height: 150px;
+	margin:  auto;
+	width: 50%;
+ }
+
+.imglogo{
+	max-height: 200px;
+}
+
+.identificacao{
+       margin-top: 30px;
+}
+
+.tecnica {
+
+}
+
+.coluna{
+margin-top: 30px;
+}
+
+.femur{
+
+}
+
+.conclusao{
+	margin-top: 30px;
+}
+
+.assinatura{ 
+	height: 60px;
+	
+}
+
+.linhaassin{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.medico{
+	    text-align: center;
+    	float: right;
+   		margin-right: 100px;
+    	margin-top: 40px;
+    
+}
+
+.rodape{
+	clear: both;
+	position: relative;
+	padding-top: 40px;
+	text-align: center;
+	}
