@@ -1,2 +1,3 @@
 <?php
-$conexao = mysqli_connect('', 'dxarep72_densito', '9F6s5vB1zd', 'dxarep72_densito');
+//mysqli_connect(host, username, password, dbname, port, socket)
+$conexao = mysqli_connect('localhost', 'root', '', 'densito');

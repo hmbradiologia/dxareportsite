@@ -108,19 +108,24 @@ document.getElementById("formulario").addEventListener("submit", function (event
     // calculo femur
 
     document.getElementById("sidefemur").innerHTML = `${patient.side} FEMUR :`;
-
+    var resultFemurContent = '';
     function calculofemur() {
 
         if (patient.tscolo <= -2.5 || patient.tsft <= -2.5) { resultfemur = "Osteoporosis" }
         else if (patient.tscolo >= -1.0 && patient.tsft >= -1.0) { resultfemur = "Normal" }
         else { resultfemur = "Osteopenia" };
+        
+        resultFemurContent = `<p>The BMD measured at the femoral neck is: ${patient.dmocolo} g/cm²</p>
+            <p>T-score = ${patient.tscolo} </p>
+            <p>The BMD measured at the total proximal femur is: ${patient.dmoft} g/cm² </p>
+            <p>T-score = ${patient.tsft} </p>
+            <p>The result on this region : <b>${resultfemur}</b>.</p>`;
 
         return document.getElementById("resultadofemur").innerHTML = `The BMD measured at the femoral neck is: ${patient.dmocolo} g/cm²  <br>
- T-score = ${patient.tscolo} <br>
- The BMD measured at the total proximal femur is: ${patient.dmoft} g/cm² <br>
- T-score = ${patient.tsft} <br>
- The result on this region : <b>${resultfemur}</b>.`;
-
+            T-score = ${patient.tscolo} <br>
+            The BMD measured at the total proximal femur is: ${patient.dmoft} g/cm² <br>
+            T-score = ${patient.tsft} <br>
+            The result on this region : <b>${resultfemur}</b>.`;
     }
     console.log(calculofemur());
 
@@ -173,6 +178,42 @@ document.getElementById("formulario").addEventListener("submit", function (event
     // show report
 
     document.getElementById("reportresult").style.display = "block"
+
+    // PDF genetare
+    let ptecnicaPDF = `<p>A DXA scan was performed on ${patient.dexame} using a ${patient.densito} densitometer.</p>`;
+    let namerepPDF = `<p>Name: ${patient.nome}.</p>`;
+    let agePDF = `<p>Age: ${idade} years.</p>`;
+    let genderPDF = `<p>Gender: ${patient.sexo}.</p>`;
+    let referphyPDF = `<p>${document.getElementById("refphy").value}</p>`;
+    //let indicatPDF = `<p>${patient.indica}</p>`;
+    let resultadolombarPDF = `${resultFemurContent}`;
+    let sidefemurPDF = `<p>${patient.side} FEMUR :</p>`;
+    let resultadofemurPDF = `The BMD measured at the femoral neck is: ${patient.dmocolo} g/cm²  <br>`;
+    let conclusaoPDF = `<p>Based on BMD diagnosis is consistent with ${resultfinal} (WHO criteria)</p>`;
+    let tecqualPDF = `<p>${document.getElementById("coments").value}</p>`;
+    let comparatextPDF = `<p>The comparison with the technically similar prior</p>`;
+
+    const doc = new jsPDF()
+    doc.fromHTML(`<html><head><title>Report</title><h1>Dual-Energy X-ray Absorptiometry (DXA) Report</h1> ${ptecnicaPDF} 
+    <h3>Clinical History:</h3>
+    ${patient.nome ? namerepPDF : ''}
+    ${idade ? agePDF : ''}
+    ${patient.sexo ? genderPDF : ''}
+    <b>Referring Physician:</b>
+    ${referphyPDF ? referphyPDF : ''}
+    <h3>Results:</h3>
+    <b>LUMBAR SPINE:</b>
+    ${resultadolombarPDF ? resultadolombarPDF : ''}
+    <b>LEFT FEMUR :</b>
+    ${sidefemurPDF ? sidefemurPDF : ''}
+    ${resultadofemurPDF ? resultadofemurPDF : ''}
+    <h3>IMPRESSION:</h3>
+    ${conclusaoPDF ? conclusaoPDF : ''}
+    ${tecqualPDF ? tecqualPDF : ''}
+    ${comparatextPDF ? comparatextPDF : ''}
+    </head><body></body></html>`)
+    doc.output('dataurlnewwindow');
+    doc.save('Report.pdf');
 
 });
 

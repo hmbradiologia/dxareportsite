@@ -21,6 +21,8 @@ require_once("mostra-alerta.php"); ?>
                     <li><a href="formulariocomposicao.php" class="navbar-brand">Composição Corporal</a></li>
                     <li><a href="empresa-formulario.php">Adiciona empresa</a></li>
                     <li><a href="empresa-lista.php">Empresas</a></li>
+                    <li><a href="usuario-lista.php">Usuários</a></li>
+                    <li><a href="usuario-formulario.php">Adiciona usuário</a></li>
                     <li><a href="index.php">Login</a></li>
                 </ul>
             </div>
